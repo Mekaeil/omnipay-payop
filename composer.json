@@ -1,0 +1,25 @@
+{
+    "name": "mekaeil/omnipay-payop",
+    "type": "library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "omnipay",
+        "pay",
+        "payment",
+        "payop"
+    ],
+    "require": {
+        "league/omnipay": "^3.0"
+    },
+    "autoload": {
+        "psr-4": { "Omnipay\\PayOp\\" : "src/" }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mekaeil",
+            "email": "maikel1370@gmail.com"
+        }
+    ]
+}
