@@ -20,17 +20,17 @@ class Gateway extends AbstractGateway
 	public function getDefaultParameters ()
 	{
 		return [
-			'token' => '',		// required
-			'language' => 'en',	// required
-			'publicKey'	=> '',	// required
-			'secretKey' => '',	// required
-			'signature'	=> '',	// required
-			'resultUrl' => '',	// required
-			'failPath' => '',	// required
-			'order' => "",		// required, JSON object 
-			'payer' => "",		// required, JSON object 
-			'paymentMethod' => '', 	// string
-			'metadata' => "", 		// JSON object
+			'token' => '',				 // required
+			'language' => 'ens',		 // required
+			'publicKey'	=> '',			 // required
+			'secretKey' => '',			 // required
+			'signature'	=> '',			 // required
+			'resultUrl' => '',			 // required
+			'failPath' => '',			 // required
+			'order' => '',				 // required, JSON object 
+			'payer' => '',				 // required, JSON object 
+			'paymentMethod' => '', 	 	 // string
+			'metadata' => '', 			 // JSON object
 			'testMode' => false
 		];
 	}
@@ -65,26 +65,6 @@ class Gateway extends AbstractGateway
 		return $this->setParameter('publicKey', $value);
 	}
 
-	public function getReturnUrl ()
-	{
-		return $this->getParameter( 'resultUrl' );
-	}
-
-	public function setReturnUrl ( $value )
-	{
-		return $this->setParameter( 'resultUrl', $value );
-	}
-
-	public function getCancelUrl ()
-	{
-		return $this->getParameter( 'failPath' );
-	}
-
-	public function setCancelUrl ( $value )
-	{
-		return $this->setParameter( 'failPath', $value );
-	}
-
 	public function getLanguage ()
 	{
 		return $this->getParameter('language');
@@ -95,7 +75,67 @@ class Gateway extends AbstractGateway
 		return $this->setParameter( 'language', $value );
 	}
 
-	
+	public function getPayMethod ()
+	{
+		return $this->getParameter( 'paymentMethod' );
+	}
+
+	public function setPayMethod ( $value )
+	{
+		return $this->setParameter( 'paymentMethod',  $value );
+	}
+
+	public function getOrder ()
+	{
+		return $this->getParameter( 'order' );
+	}
+
+	public function setOrder ( $value )
+	{
+		return $this->setParameter( 'order', $value );
+	}
+
+	public function getPayer ()
+	{
+		return $this->getParameter( 'payer' );
+	}
+
+	public function setPayer ( $value )
+	{
+		return $this->setParameter( 'payer', $value );
+	}
+
+	public function getMetadata ()
+	{
+		return $this->getParameter( 'metadata' );
+	}
+
+	public function setMetadata ( $value )
+	{
+		return $this->setParameter( 'metadata', $value );
+	}
+
+	public function getResultUrl ()
+	{
+		return $this->getParameter( 'resultUrl' );
+	}
+
+	public function setResultUrl ( $value )
+	{
+		return $this->setParameter( 'resultUrl', $value );
+	}
+
+	public function getFailPath ()
+	{
+		return $this->getParameter( 'failPath' );
+	}
+
+	public function setFailPath ( $value )
+	{
+		return $this->setParameter( 'failPath', $value );
+	}
+
+
     /*
     |--------------------------------------------------------------------------
     | REQUESTS
@@ -103,22 +143,22 @@ class Gateway extends AbstractGateway
     |
     */
 	
-	public function fetchIssuers ( array $parameters = array() )
+	public function fetchIssuers( array $parameters = array() )
 	{
 		return $this->createRequest( '\Omnipay\PayOp\Message\FetchIssuersRequest', $parameters );
 	}
 
-	public function fetchPaymentMethods ( array $parameters = array() )
+	public function fetchPaymentMethods( array $parameters = array() )
 	{
 		return $this->createRequest( '\Omnipay\PayOp\Message\FetchPaymentMethodsRequest', $parameters );
 	}
 
-	public function purchase ( array $parameters = array() )
-	{
+	public function purchase( array $parameters = array() )
+	{	
 		return $this->createRequest( '\Omnipay\PayOp\Message\PurchaseRequest', $parameters );
 	}
 
-	public function completePurchase ( array $parameters = array() )
+	public function completePurchase( array $parameters = array() )
 	{
 		return $this->createRequest( '\Omnipay\PayOp\Message\CompletePurchaseRequest', $parameters );
 	}
