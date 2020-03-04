@@ -29,7 +29,7 @@ class Gateway extends AbstractGateway
 			'failPath' => '',	// required
 			'order' => "",		// required, JSON object 
 			'payer' => "",		// required, JSON object 
-			'paymentMethod' => '', 		// string
+			'paymentMethod' => '', 	// string
 			'metadata' => "", 		// JSON object
 			'testMode' => false
 		];

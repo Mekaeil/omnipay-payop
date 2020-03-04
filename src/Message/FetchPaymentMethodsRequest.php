@@ -24,8 +24,7 @@ class FetchPaymentMethodsRequest extends AbstractRequest
 				'Authorization' => 'Bearer '. $this->getToken(),
 			], http_build_query($data));
 			 
-			$httpResponse = simplexml_load_string($response->getBody()->getContents());
-
+			$httpResponse = json_decode($response->getBody()->getContents(), true);
         }
         catch (Exception $e) {
 
@@ -36,9 +35,8 @@ class FetchPaymentMethodsRequest extends AbstractRequest
 				throw $e;
 			}
         }
-        
-        return $this->response = new FetchPaymentMethodsResponse( $this, $httpResponse->xml() );
-        
+      
+        return $this->response = new FetchPaymentMethodsResponse( $this, $httpResponse);
     }
 
 }
